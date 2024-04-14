@@ -16,13 +16,13 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        //rigidBody = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void Update()
     {
-        //transform.Translate(bulletVector * bulletSpeed * Time.deltaTime);
-        rigidBody.MovePosition(rigidBody.position + bulletVector * bulletSpeed* Time.deltaTime);
+        transform.Translate(bulletVector * bulletSpeed * Time.deltaTime);
+        //rigidBody.MovePosition(rigidBody.position + bulletVector * bulletSpeed* Time.deltaTime);
         
     }
 

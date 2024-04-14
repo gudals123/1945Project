@@ -31,7 +31,8 @@ public class SpawnManager : MonoBehaviour
             Vector2 r = new Vector2(x, transform.position.y);
             //Quaternionnew Quaternion(0, 0, 180);
             //몬스터 생성
-            Instantiate(monster, r,);
+            Instantiate(monster, r, Quaternion.Euler(0,0,180));
+            //Instantiate(monster, r, Quaternion.identity);
         }
     }
     private void Stop()

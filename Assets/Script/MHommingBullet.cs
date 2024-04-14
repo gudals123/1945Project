@@ -6,8 +6,6 @@ using static UnityEngine.GraphicsBuffer;
 public class MHommingBullet : Bullet
 {
     private GameObject target;
-    private GameObject G;
-
 
     private Vector2 dir;
     private Vector2 dirNo;
@@ -16,12 +14,9 @@ public class MHommingBullet : Bullet
     {
         base.Start();
 
-        if (GameObject.FindGameObjectWithTag("Player"))
+        if (target = GameObject.FindGameObjectWithTag("Player"))
         {
-            target = GameObject.FindGameObjectWithTag("Player");
-
             //A - B -> A를 바라보는 벡터 나온다.
-
             dir = target.transform.position - transform.position;
 
             //방향벡터만 구하기 반뒤벡터 1의 크기로 만든다.
@@ -39,7 +34,6 @@ public class MHommingBullet : Bullet
                 dirNo = new Vector2(-1, -1);
             }
         }
-        
 
         bulletVector = dirNo;
         damage = 1;
