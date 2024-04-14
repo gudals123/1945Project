@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7960675283670379873}
   - component: {fileID: 8232494248804337122}
-  - component: {fileID: 8607451587302671940}
   - component: {fileID: 7662048815667066653}
+  - component: {fileID: 8607451587302671940}
   - component: {fileID: -8843696721422502239}
   m_Layer: 0
   m_Name: PBullet01
@@ -87,6 +87,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &7662048815667066653
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8513605860474083786}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!70 &8607451587302671940
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -122,33 +149,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00075862557, y: -0.0005276203}
   m_Size: {x: 0.2059197, y: 0.755569}
   m_Direction: 0
---- !u!50 &7662048815667066653
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8513605860474083786}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &-8843696721422502239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e879f4920a8ccf47b2723ea36d4a961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 50
-  bulletVector: {x: 0, y: 1}
+  bulletSpeed: 20
   attacker: Player

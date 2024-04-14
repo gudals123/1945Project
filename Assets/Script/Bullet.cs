@@ -16,15 +16,15 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Start()
     {
-        //rigidBody = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        //rigidBody.MovePosition(rigidBody.position + bulletVector * bulletSpeed * Time.deltaTime);
+
+    }
+    protected virtual void FixedUpdate()
+    {
+        rigidBody.MovePosition(rigidBody.position + bulletVector * bulletSpeed * Time.deltaTime);
     }
 
-    protected virtual void Update()
-    {
-        transform.Translate(bulletVector * bulletSpeed * Time.deltaTime);
-        //rigidBody.MovePosition(rigidBody.position + bulletVector * bulletSpeed* Time.deltaTime);
-        
-    }
 
     protected virtual void OnBecameInvisible()
     {

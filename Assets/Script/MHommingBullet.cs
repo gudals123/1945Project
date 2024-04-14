@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class MHommingBullet : Bullet
 {
@@ -39,9 +38,9 @@ public class MHommingBullet : Bullet
         damage = 1;
     }
 
-    protected override void Update()
+    protected override void FixedUpdate()
     {
-        base.Update();
+        base .FixedUpdate();
     }
 
     protected override void BulletVector(Vector2 vec)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Monster1 : Monster
 {
-    private float moveSpeed = 3.5f;
+    private float moveSpeed = 3.0f;
     private float StartTime = 0.5f; //시작
     private bool isStart = true;
     private float shootDelay = 2.5f;
@@ -34,7 +34,7 @@ public class Monster1 : Monster
     IEnumerator SpeedControl()
     {
         yield return new WaitForSeconds(StartTime);
-        moveSpeed = 1.5f;
+        moveSpeed = 0.5f;
     }
 
 
@@ -54,7 +54,6 @@ public class Monster1 : Monster
             Instantiate(bullet, pos[0].position, Quaternion.identity);
         }
     }
-
 
 
     protected override void OnBecameInvisible()
