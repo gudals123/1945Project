@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -8,6 +9,9 @@ public class Bullet : MonoBehaviour
     private float bulletSpeed = 10f;
     [SerializeField]
     private string attacker;
+    [SerializeField]
+    private GameObject hit;
+
 
     private Rigidbody2D rigidBody;
 
@@ -39,21 +43,47 @@ public class Bullet : MonoBehaviour
         {
             if (collision.CompareTag("Monster"))
             {
+                GameObject go = Instantiate(hit, transform.position, Quaternion.identity);
+                Destroy(go, 0.1f);
                 collision.gameObject.GetComponent<Monster>().Damage(damage);
-                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+            if (collision.CompareTag("Boss"))
+            {
+                GameObject go = Instantiate(hit, transform.position, Quaternion.identity);
+                Destroy(go, 0.1f);
+                collision.gameObject.GetComponent<Boss>().Damage(damage);
+            }
+            if (collision.CompareTag("BossLeft"))
+            {
+                GameObject go = Instantiate(hit, transform.position, Quaternion.identity);
+                Destroy(go, 0.1f);
+                collision.gameObject.GetComponent<BossSide>().DamageL(damage);
+            }
+            if (collision.CompareTag("BossRight"))
+            {
+                GameObject go = Instantiate(hit, transform.position, Quaternion.identity);
+                Destroy(go, 0.1f);
+                collision.gameObject.GetComponent<BossSide>().DamageR(damage);
+            }
+            if (collision.CompareTag("BossHead"))
+            {
+                GameObject go = Instantiate(hit, transform.position, Quaternion.identity);
+                Destroy(go, 0.1f);
+                collision.gameObject.GetComponent<BossHead>().Damage(damage);
             }
         }
-        else if (attacker == "Monster")
+/*        else if (attacker == "Monster")
         {
             if (collision.CompareTag("Player"))
             {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
             }
-        }
+        }*/
 
     }
-    protected virtual void BulletVector(Vector2 vec)
+    public virtual void BulletVector(Vector2 vec)
     {
         bulletVector = vec;
     }

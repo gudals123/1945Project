@@ -11,7 +11,7 @@ public class Monster : MonoBehaviour
     [SerializeField]
     protected List<Transform> pos;
     [SerializeField]
-    protected GameObject mosterDie;
+    protected GameObject monsterDie;
 
 
 
@@ -36,13 +36,13 @@ public class Monster : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Damage(int attack)
+    public virtual void Damage(int attack)
     {
         hp -= attack;
 
         if (hp <= 0)
         {
-            GameObject go = Instantiate(mosterDie, transform.position, Quaternion.identity);
+            GameObject go = Instantiate(monsterDie, transform.position, Quaternion.identity);
             Destroy(go, 1);
             Destroy(gameObject);
         }

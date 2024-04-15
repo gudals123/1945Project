@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4205062264014889417}
   m_Layer: 0
   m_Name: MHommingBullet
-  m_TagString: Untagged
+  m_TagString: MonsterBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 2d480b3eb25bb6441a19a7651596b1b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -163,3 +163,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 3
   attacker: Monster
+  hit: {fileID: 160941502073299286, guid: 77740a1c6af53af4cbaa984c7afda7b2, type: 3}

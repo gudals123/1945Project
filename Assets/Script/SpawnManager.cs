@@ -10,16 +10,24 @@ public class SpawnManager : MonoBehaviour
     public float SpawnStop = 10; //생성끝나는 시간
     [SerializeField]
     private GameObject monster;
+    [SerializeField]
+    private GameObject monster2;
+    [SerializeField]
+    private GameObject boss;
+    [SerializeField]
+    private List<Transform> pos;
 
     bool swi = true;
 
     void Start()
     {
-        StartCoroutine("RandomSpawn");
+        StartCoroutine("Spawn");
         Invoke("Stop", SpawnStop);
 
+
+
     }
-    IEnumerator RandomSpawn()
+    IEnumerator Spawn()
     {
         while (swi)
         {
@@ -38,14 +46,58 @@ public class SpawnManager : MonoBehaviour
     private void Stop()
     {
         swi = false;
-        StopCoroutine("RandomSpawn");
+        StopCoroutine("Spawn");
 
         //두번째 몬스터
-        //StartCoroutine("RandomSpawn2");
-        //Invoke("Stop2", SpawnStop+20);
+        StartCoroutine("Spawn2");
+        Invoke("Stop2", SpawnStop + 10);
 
+    }
+    IEnumerator Spawn2()
+    {
+        yield return new WaitForSeconds(StartTime);
+        StartCoroutine("MonsterSpawn");
+        StartCoroutine("MonsterSpawn2");
+    }
+
+    IEnumerator MonsterSpawn()
+    {
+        yield return new WaitForSeconds(StartTime);
+        GameObject clone = Instantiate(monster2, pos[0].position, Quaternion.Euler(0, 0, 180));
+        clone.GetComponent<Monster2>().MonsterVector(Vector2.down + Vector2.left);
+    }
+    IEnumerator MonsterSpawn2()
+    {
+        yield return new WaitForSeconds(StartTime);
+        GameObject clone = Instantiate(monster2, pos[1].position, Quaternion.Euler(0, 0, 180));
+        clone.GetComponent<Monster2>().MonsterVector(Vector2.down + Vector2.right);
+    }
+
+    private void Stop2()
+    {
+        StopCoroutine("Spawn2");
+        
+        swi = true;
+        StartCoroutine("Spawn");
+        StartCoroutine("Spawn2");
+        Invoke("Stop3", SpawnStop + 20);
+
+        /*        StartCoroutine("Spawn3");
+                Invoke("Stop3", SpawnStop+30);*/
+    }
+
+    private void Stop3()
+    {
+        swi = false;
+        StopCoroutine("Spawn");
+        StopCoroutine("Spawn2");
+
+        Vector3 pos = new Vector3(0, 2.899f, 0);
+
+        Instantiate(boss, pos, Quaternion.identity);
+        //StartCoroutine("BossSpawn");
     }
 
 
-
+    
 }

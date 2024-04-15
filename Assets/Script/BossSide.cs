@@ -1,0 +1,108 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BossSide : Monster
+{
+
+
+    public Sprite sestroyedSprite;
+    bool msState = true;
+
+    GameObject missile1;
+    GameObject missile2;
+    GameObject missile3;
+
+
+    void Start()
+    {
+        StartCoroutine(BossMissle());
+    }
+
+    void Update()
+    {
+        
+    }
+
+    public void DamageL(int attack)
+    {
+        hp -= attack;
+        if (hp < 0)
+        {
+            StopMissle();
+            GameObject go = Instantiate(monsterDie, transform.position, Quaternion.identity);
+            Destroy(go, 0.5f);
+            gameObject.GetComponent<SpriteRenderer>().sprite = sestroyedSprite;
+            gameObject.transform.Translate(0.07f, 0, 0);
+            Destroy(gameObject.GetComponent<BoxCollider2D>());
+        }
+    }
+    public void DamageR(int attack)
+    {
+        hp -= attack;
+        if (hp < 0)
+        {
+            StopMissle();
+            GameObject go = Instantiate(monsterDie, transform.position, Quaternion.identity);
+            Destroy(go, 0.5f);
+            gameObject.GetComponent<SpriteRenderer>().sprite = sestroyedSprite;
+            gameObject.transform.Translate(-0.14f, 0, 0);
+            Destroy(gameObject.GetComponent<BoxCollider2D>());
+        }
+    }
+
+    public void StopMissle()
+    {
+        msState = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("PlayerBullet"))
+        {
+            Destroy(collision.gameObject);
+
+            StartCoroutine("Hit");
+        }
+/*        if (collision.CompareTag("Lazer"))
+        {
+
+            StartCoroutine("Hit");
+        }*/
+    }
+
+    IEnumerator Hit()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(200/255, 200/255, 200/255, 255/255);
+        yield return new WaitForSeconds(0.1f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    IEnumerator BossMissle()
+    {
+        while (true)
+        {
+            if (msState)
+            {
+
+/*                missile1 =  Instantiate(ms, pos1.position, Quaternion.identity);
+
+                missile2 = Instantiate(ms, pos3.position, Quaternion.identity);
+                missile2.GetComponent<MBullet>().Move(new Vector2(0,1));
+
+                if (gameObject.CompareTag("BossLeft"))
+                {
+                    missile3 = Instantiate(ms, pos2.position, Quaternion.identity);
+                    missile3.GetComponent<MBullet>().Move(Vector2.left);
+                }
+                if (gameObject.CompareTag("BossRight"))
+                {
+                    missile3 = Instantiate(ms, pos2.position, Quaternion.identity);
+                    missile3.GetComponent<MBullet>().Move(Vector2.right);
+                }*/
+            }
+
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+}

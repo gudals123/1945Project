@@ -12,7 +12,7 @@ public class Monster1 : Monster
 
     protected override void Start()
     {
-        hp = 10;
+        hp = 50;
         Shoot();
     }
 

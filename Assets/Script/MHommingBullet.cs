@@ -43,22 +43,7 @@ public class MHommingBullet : Bullet
         base .FixedUpdate();
     }
 
-    protected override void BulletVector(Vector2 vec)
-    {
-        base.BulletVector(vec);
-    }
 
-
-
-    protected override void OnBecameInvisible()
-    {
-        base.OnBecameInvisible();
-    }
-
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-    }
 
 
 }

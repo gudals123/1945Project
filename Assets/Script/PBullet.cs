@@ -9,7 +9,7 @@ public class PBullet : Bullet
     {
         base.Start();
         bulletVector = Vector2.up;
-        damage = 10;
+        damage = 30;
     }
 
     protected override void FixedUpdate()

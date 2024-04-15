@@ -152,11 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd4e5f2287648342b1afab685636109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 50
   bullet: {fileID: 6286735611578164929, guid: 58f3354ccbefa79479274beef2fad5e6, type: 3}
   pos:
   - {fileID: 4552794596052053491}
-  mosterDie: {fileID: 160941502073299286, guid: 77740a1c6af53af4cbaa984c7afda7b2, type: 3}
+  monsterDie: {fileID: 160941502073299286, guid: 77740a1c6af53af4cbaa984c7afda7b2, type: 3}
 --- !u!61 &3543262082550649922
 BoxCollider2D:
   m_ObjectHideFlags: 0
