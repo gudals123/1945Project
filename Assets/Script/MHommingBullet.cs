@@ -23,15 +23,12 @@ public class MHommingBullet : Bullet
         }
         else
         {
-            int num = Random.Range(0,2);
-            if (num == 0)
-            {
-                dirNo = new Vector2(1, -1);
-            }
-            else
-            {
-                dirNo = new Vector2(-1, -1);
-            }
+            
+            //A - B -> A를 바라보는 벡터 나온다.
+            dir = deadPosition - transform.position;
+
+            //방향벡터만 구하기 반뒤벡터 1의 크기로 만든다.
+            dirNo = dir.normalized;
         }
 
         bulletVector = dirNo;

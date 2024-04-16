@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
 
     protected Vector2 bulletVector;
     protected int damage;
+    protected Vector3 deadPosition;
 
     protected virtual void Start()
     {
@@ -73,14 +74,15 @@ public class Bullet : MonoBehaviour
                 collision.gameObject.GetComponent<BossHead>().Damage(damage);
             }
         }
-/*        else if (attacker == "Monster")
+        else if (attacker == "Monster")
         {
             if (collision.CompareTag("Player"))
             {
+                deadPosition = collision.gameObject.transform.position;
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
             }
-        }*/
+        }
 
     }
     public virtual void BulletVector(Vector2 vec)
